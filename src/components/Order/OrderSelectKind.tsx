@@ -45,16 +45,7 @@ const SizeOption = [
 ];
 
 export const OrderSelectKind = () => {
-  const { form } = useOrderContext();
-  const { setValue } = form;
-
-  const handleSelectSize = useCallback(
-    (value: string) => {
-      setValue("size", value);
-    },
-    [setValue]
-  );
-
+  const { handleSetSize } = useOrderContext();
   const SizeOptionComponent = useCallback(
     () =>
       SizeOption.map((size) => {
@@ -83,7 +74,7 @@ export const OrderSelectKind = () => {
                 <ButtonSelect
                   fullWidth
                   variant="contained"
-                  onClick={() => handleSelectSize(value)}
+                  onClick={() => handleSetSize(value)}
                 >
                   <Typography textTransform={"none"}>Chọn</Typography>
                 </ButtonSelect>
@@ -92,7 +83,7 @@ export const OrderSelectKind = () => {
           </KindBox>
         );
       }),
-    [handleSelectSize]
+    [handleSetSize]
   );
 
   return (

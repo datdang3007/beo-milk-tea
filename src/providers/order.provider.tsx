@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useMemo } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+} from "react";
 import { UseFormReturn, useForm } from "react-hook-form";
 import { IMilkTea, IOrder } from "src/types/Order";
 
@@ -10,6 +16,8 @@ type OrderContextProps = {
   form: UseFormReturn<IOrder, any, undefined>;
   size?: string;
   milk_tea?: IMilkTea;
+  handleSetSize: (value: string) => void;
+  onClickButtonBack: () => void;
 };
 
 const OrderContext = createContext<OrderContextProps | null>(null);
@@ -30,16 +38,34 @@ export const OrderProvider = ({ children }: Props) => {
       milk_tea: undefined,
     },
   });
-  const { watch } = form;
+  const { watch, setValue } = form;
   const { size, milk_tea } = watch();
+
+  const handleSetSize = useCallback(
+    (value: string) => {
+      setValue("size", value);
+    },
+    [setValue]
+  );
+
+  const onClickButtonBack = useCallback(() => {
+    if (milk_tea) {
+      return setValue("milk_tea", undefined);
+    }
+    if (size) {
+      return setValue("size", undefined);
+    }
+  }, [milk_tea, setValue, size]);
 
   const provideProps = useMemo(
     () => ({
       form,
       size,
       milk_tea,
+      handleSetSize,
+      onClickButtonBack,
     }),
-    [form, size, milk_tea]
+    [form, size, milk_tea, handleSetSize, onClickButtonBack]
   );
 
   return (

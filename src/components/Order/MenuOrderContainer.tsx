@@ -1,4 +1,4 @@
-import { FiberManualRecord } from "@mui/icons-material";
+import { FiberManualRecord, KeyboardBackspace } from "@mui/icons-material";
 import {
   Button,
   Checkbox,
@@ -13,6 +13,7 @@ import {
 import { useCallback, useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { COLOR_PALLETTE, COLOR_PRIMARY } from "src/constants";
+import { useOrderContext } from "src/providers/order.provider";
 import { IIceOption, IMilkTea, ISugarOption, ITeaKind } from "src/types/Order";
 
 const TeaKind = [
@@ -64,6 +65,7 @@ const IceOption = [
 ] as IIceOption[];
 
 export const MenuOrderContainer = () => {
+  const { onClickButtonBack } = useOrderContext();
   const formMilkTea = useForm<IMilkTea>({
     defaultValues: {
       kind: TeaKind[0],
@@ -109,6 +111,19 @@ export const MenuOrderContainer = () => {
   return (
     <Grid container>
       <Grid container justifyContent={"center"} mt={"40px"}>
+        {/* BUTTON BACK */}
+        <Grid item container xs={11}>
+          <Grid item xs={12}>
+            <Button
+              variant="text"
+              startIcon={<KeyboardBackspace />}
+              onClick={onClickButtonBack}
+            >
+              <Typography textTransform={"none"}>Trở lại</Typography>
+            </Button>
+          </Grid>
+        </Grid>
+
         <Grid item container xs={11} rowGap={"24px"}>
           {/* TITLE */}
           <Grid item xs={12}>
