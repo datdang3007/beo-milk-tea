@@ -80,13 +80,12 @@ export const OrderSelectKind = () => {
             </Grid>
             <Grid container justifyContent={"center"} mt={"36px"}>
               <Grid item xs={9}>
-                <ButtonSelect fullWidth variant="contained">
-                  <Typography
-                    textTransform={"none"}
-                    onClick={() => handleSelectSize(value)}
-                  >
-                    Chọn
-                  </Typography>
+                <ButtonSelect
+                  fullWidth
+                  variant="contained"
+                  onClick={() => handleSelectSize(value)}
+                >
+                  <Typography textTransform={"none"}>Chọn</Typography>
                 </ButtonSelect>
               </Grid>
             </Grid>

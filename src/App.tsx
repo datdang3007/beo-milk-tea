@@ -13,7 +13,7 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route path="/" element={<Order />}></Route>
+            <Route path="*" element={<Order />}></Route>
           </Routes>
         </ThemeProvider>
       </QueryClientProvider>
