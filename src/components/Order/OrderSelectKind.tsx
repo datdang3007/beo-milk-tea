@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography, styled } from "@mui/material";
 import { useCallback } from "react";
-import { COLOR_PALLETTE } from "src/constants";
+import { COLOR_PALLETTE, TEXT_COLOR } from "src/constants";
 import { TEA_SIZE } from "src/constants/Order";
 import { useOrderContext } from "src/providers/order.provider";
 
@@ -54,7 +54,9 @@ export const OrderSelectKind = () => {
           <KindBox key={value} item xs={12}>
             <Grid container justifyContent={"center"}>
               <BoxSizeText>
-                <Typography fontWeight={900}>{name}</Typography>
+                <Typography fontWeight={900} color={TEXT_COLOR.WHITE}>
+                  {name}
+                </Typography>
               </BoxSizeText>
             </Grid>
             <Grid container mt={"24px"} rowGap={"8px"}>
@@ -62,7 +64,7 @@ export const OrderSelectKind = () => {
                 const { id, label, content } = description;
                 return (
                   <Grid key={id} item xs={12}>
-                    <Typography>
+                    <Typography color={TEXT_COLOR.BLACK}>
                       {label}: {content}
                     </Typography>
                   </Grid>
@@ -71,13 +73,18 @@ export const OrderSelectKind = () => {
             </Grid>
             <Grid container justifyContent={"center"} mt={"36px"}>
               <Grid item xs={9}>
-                <ButtonSelect
+                <Button
                   fullWidth
                   variant="contained"
                   onClick={() => handleSetSize(value)}
                 >
-                  <Typography textTransform={"none"}>Chọn</Typography>
-                </ButtonSelect>
+                  <Typography
+                    textTransform={"none"}
+                    color={COLOR_PALLETTE.WHITE}
+                  >
+                    Chọn
+                  </Typography>
+                </Button>
               </Grid>
             </Grid>
           </KindBox>
@@ -87,11 +94,19 @@ export const OrderSelectKind = () => {
   );
 
   return (
-    <Grid container justifyContent={"center"} mt={"40px"}>
+    <Grid container justifyContent={"center"} mt={"30px"}>
       <Grid item container xs={11} rowGap={"24px"}>
         {/* TITLE */}
         <Grid item xs={12}>
-          <Typography fontSize={"24px"} fontWeight={"bold"}>
+          <Typography
+            color={TEXT_COLOR.BLACK}
+            fontSize={{
+              xs: "18px",
+              sm: "20px",
+              lg: "22px",
+            }}
+            fontWeight={"bold"}
+          >
             Lựa chọn size
           </Typography>
         </Grid>
@@ -102,7 +117,6 @@ export const OrderSelectKind = () => {
 };
 
 const KindBox = styled(Grid)({
-  border: `1px solid ${COLOR_PALLETTE.BLACK}`,
   borderRadius: "8px",
   padding: "20px",
   background: COLOR_PALLETTE.WHITE,
@@ -115,11 +129,6 @@ const BoxSizeText = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  background: COLOR_PALLETTE.BASE,
-  border: `1px solid ${COLOR_PALLETTE.BLACK}`,
+  background: COLOR_PALLETTE.PINK,
   borderRadius: "50%",
-});
-
-const ButtonSelect = styled(Button)({
-  background: `${COLOR_PALLETTE.HEADER} !important`,
 });

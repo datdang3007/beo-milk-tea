@@ -1,11 +1,15 @@
 export enum COLOR_PALLETTE {
-  HEADER = "#2f4858",
-  BASE = "#F7F6F4",
+  BASE = "#FFF8F2",
+  PINK = "#E9686D",
+  YELLOW = "#F7C67E",
+  LINEAR_PINK = "#FFCFD2",
+  LINEAR_YELLOW = "#FFEDCF",
   BLACK = "#333333",
   WHITE = "#FFFFFF",
 }
 
-export enum COLOR_PRIMARY {
-  DEFAULT = "#ab8e74",
-  PRIMARY = "#b88b8b",
+export enum TEXT_COLOR {
+  BLACK = "#333333",
+  WHITE = "#FFFFFF",
+  BROWN = "#8E8682",
 }

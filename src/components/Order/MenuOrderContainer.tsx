@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useCallback, useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { COLOR_PALLETTE, COLOR_PRIMARY } from "src/constants";
+import { COLOR_PALLETTE } from "src/constants";
 import { useOrderContext } from "src/providers/order.provider";
 import { IIceOption, IMilkTea, ISugarOption, ITeaKind } from "src/types/Order";
 
@@ -211,7 +211,7 @@ export const MenuOrderContainer = () => {
                   <FiberManualRecord
                     sx={{
                       fontSize: "16px",
-                      color: COLOR_PRIMARY.DEFAULT,
+                      color: COLOR_PALLETTE.YELLOW,
                       mr: "8px",
                     }}
                   />
@@ -239,7 +239,7 @@ export const MenuOrderContainer = () => {
                   <FiberManualRecord
                     sx={{
                       fontSize: "16px",
-                      color: COLOR_PRIMARY.DEFAULT,
+                      color: COLOR_PALLETTE.YELLOW,
                       mr: "8px",
                     }}
                   />
@@ -260,7 +260,7 @@ export const MenuOrderContainer = () => {
                   <FiberManualRecord
                     sx={{
                       fontSize: "16px",
-                      color: COLOR_PRIMARY.DEFAULT,
+                      color: COLOR_PALLETTE.YELLOW,
                       mr: "8px",
                     }}
                   />
@@ -300,5 +300,4 @@ export const MenuOrderContainer = () => {
 
 const ButtonSubmit = styled(Button)({
   padding: "8px 0",
-  backgroundColor: `${COLOR_PALLETTE.HEADER} !important`,
 });

@@ -6,6 +6,7 @@ export const Header = () => {
     <HeaderContainer container justifyContent={"center"}>
       <Typography
         color={COLOR_PALLETTE.WHITE}
+        fontWeight={"bold"}
         fontSize={{
           xs: "20px",
           sm: "22px",
@@ -19,6 +20,6 @@ export const Header = () => {
 };
 
 const HeaderContainer = styled(Grid)({
-  background: COLOR_PALLETTE.HEADER,
+  background: COLOR_PALLETTE.PINK,
   padding: "12px 0",
 });
