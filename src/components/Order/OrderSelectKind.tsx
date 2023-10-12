@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { COLOR_PALLETTE, TEXT_COLOR } from "src/constants";
 import { TEA_SIZE } from "src/constants/Order";
 import { useOrderContext } from "src/providers/order.provider";
+import LogoImage from "src/assets/img/logo.png";
 
 const SizeOption = [
   {
@@ -46,6 +47,7 @@ const SizeOption = [
 
 export const OrderSelectKind = () => {
   const { handleSetSize } = useOrderContext();
+
   const SizeOptionComponent = useCallback(
     () =>
       SizeOption.map((size) => {
@@ -94,8 +96,16 @@ export const OrderSelectKind = () => {
   );
 
   return (
-    <Grid container justifyContent={"center"} mt={"30px"}>
+    <Grid container justifyContent={"center"} mt={"24px"}>
       <Grid item container xs={11} rowGap={"24px"}>
+        <Grid container justifyContent={"center"}>
+          <Grid item xs={"auto"}>
+            <BoxImage>
+              <img src={LogoImage} alt="" />
+            </BoxImage>
+          </Grid>
+        </Grid>
+
         {/* TITLE */}
         <Grid item xs={12}>
           <Typography
@@ -131,4 +141,18 @@ const BoxSizeText = styled(Box)({
   alignItems: "center",
   background: COLOR_PALLETTE.PINK,
   borderRadius: "50%",
+});
+
+const BoxImage = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100vw",
+  height: "120px",
+  overflow: "hidden",
+  img: {
+    display: "block",
+    width: "50%",
+    height: "auto",
+  },
 });
